@@ -52,6 +52,9 @@ exports.apps = [
      "state": "stopped",
      "maxDrones": 1,
      "drones": [],
+     "directories": {
+       "home": "todos"
+     },
      "repository": {
        "type": "git",
        "url": "https://github.com/mycozycloud/cozy-todos.git",
