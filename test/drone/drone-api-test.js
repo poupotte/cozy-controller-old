@@ -474,35 +474,6 @@ vows.describe('haibu/drone/api').addBatch(
   }
 }).addBatch({
   "When using the drone server": {
-    "a request against /drones/:id/light-update": {
-      "when drone is stopped": {
-        topic: function () {
-          app_notes = data.apps[2];
-          var options = {
-            uri: 'http://localhost:9000/drones/notes/light-update',
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              update : app_notes
-            })
-          };
-
-          request(options, this.callback);
-        },
-        "should respond with 500": function (error, response, body) {
-          assert.equal(response.statusCode, 500);
-        },
-        "should respond with the appropriate error": function (error, response, body) {
-          var result = JSON.parse(body);
-          assert.equal(result.error.message, "Cannot update application that is not running.");
-        }
-      }
-    }
-  }
-}).addBatch({
-  "When using the drone server": {
     "a request against /drones/:id/brunch": {
       "when drone is stopped": {
         topic: function () {
